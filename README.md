@@ -25,7 +25,8 @@ This project is a console-based implementation of the classic Tetris game using 
 - **Scoring System:** Awards points for cleared lines.
 - **Game Progression:** Falling speed increases after clearing a certain number of lines.
 - **Game Over Detection:** The game ends when blocks reach the top of the grid.
-  
+  ![Screenshot 2025-03-28 170313](https://github.com/user-attachments/assets/dfec6970-b0ac-412b-929e-1d66671f62d9)
+
 ## Controls
 - A - Move left
 - D - Move right
