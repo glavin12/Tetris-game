@@ -6,15 +6,15 @@ This repository is about the the working tetris game in the compiler
 This project is a console-based implementation of the classic Tetris game using C++. The game includes core mechanics such as falling tetrominoes, line clearing, scoring, and game-over conditions.
 
 ## Code Overview
-initializeTetromino() - Creates a new Tetromino shape
-spawnNewPiece() - Spawns a new Tetromino at the top
-isCollision() - Checks if a piece collides with the board
-mergePieceToBoard() - Fixes a piece into the board
-clearLines() - Removes full rows and updates the score
-rotatePiece() - Rotates the Tetromino clockwise
-rotatePieceCounterClockwise() - Rotates the Tetromino anti-clockwise
-drawBoard() - Displays the board and Tetrominoes
-gameLoop() - Runs the game loop
+- **initializeTetromino()** - Creates a new Tetromino shape
+- **spawnNewPiece()** - Spawns a new Tetromino at the top
+- **isCollision()** - Checks if a piece collides with the board
+- **mergePieceToBoard()** - Fixes a piece into the board
+- **clearLines()** - Removes full rows and updates the score
+- **rotatePiece()** - Rotates the Tetromino clockwise
+- **rotatePieceCounterClockwise()** - Rotates the Tetromino anti-clockwise
+- **drawBoard()** - Displays the board and Tetrominoes
+- **gameLoop()** - Runs the game loop
 
 ## Features
 - **Tetromino Pieces:** All seven standard tetrominoes (I, O, T, S, Z, J, L) are implemented.
@@ -28,12 +28,12 @@ gameLoop() - Runs the game loop
 - **Game Over Detection:** The game ends when blocks reach the top of the grid.
   
 ## Controls
-A - Move left
-D - Move right
-S - Move down
-W - Rotate clockwise
-E - Rotate anti-clockwise
-Q - Quit game
+- A - Move left
+- D - Move right
+- S - Move down
+- W - Rotate clockwise
+- E - Rotate anti-clockwise
+- Q - Quit game
 
 ## Technical Requirements
 - Written in **C++ (C++17 or later recommended)**
