@@ -46,8 +46,8 @@ This project is a console-based implementation of the classic Tetris game using 
 
 | Data Structure                        | Purpose |
 |----------------------------------------|---------|
-| `std::vector<std::vector<bool>>` (Matrix) | Represents the game board and tetromino shapes, acting as a 2D grid for positioning and collision detection. |
-| `struct Tetromino`                     | Stores tetromino type, position, and shape using a matrix representation. |
+| `std::vector<std::vector<bool>>`  | Represents the game board and tetromino shapes |
+| `struct Tetromino`                     | Stores tetromino type, position, and shape |
 | `enum class TetrominoType`             | Represents different types of tetrominoes (I, J, L, O, S, T, Z). |
 | `std::chrono::steady_clock`            | Manages game timing and automatic piece movement. |
 | `std::string`                          | Used for drawing board borders. |
