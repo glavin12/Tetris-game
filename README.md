@@ -42,6 +42,15 @@ This project is a console-based implementation of the classic Tetris game using 
 - Uses **2D arrays or vectors** for grid representation
 - Efficient collision detection and game logic management
 
+## Data Structures Used
+
+
+- **std::vector<std::vector<bool>>**    Represents the game board and tetromino shapes.
+- **struct Tetromino**                  Stores tetromino type, position, and shape.
+- **enum class TetrominoType**          Represents different types of tetrominoes.
+- **std::chrono::steady_clock**         Handles game timing and piece movement.
+- **std::string**                       Used for drawing borders.
+
 ## Installation & Execution
 1. Clone the repository:
    ```sh
