@@ -12,7 +12,6 @@ This project is a console-based implementation of the classic Tetris game using 
 - **mergePieceToBoard()** - Fixes a piece into the board
 - **clearLines()** - Removes full rows and updates the score
 - **rotatePiece()** - Rotates the Tetromino clockwise
-- **rotatePieceCounterClockwise()** - Rotates the Tetromino anti-clockwise
 - **drawBoard()** - Displays the board and Tetrominoes
 - **gameLoop()** - Runs the game loop
 
