@@ -5,6 +5,17 @@ This repository is about the the working tetris game in the compiler
 ## Overview
 This project is a console-based implementation of the classic Tetris game using C++. The game includes core mechanics such as falling tetrominoes, line clearing, scoring, and game-over conditions.
 
+## Code Overview
+initializeTetromino() - Creates a new Tetromino shape
+spawnNewPiece() - Spawns a new Tetromino at the top
+isCollision() - Checks if a piece collides with the board
+mergePieceToBoard() - Fixes a piece into the board
+clearLines() - Removes full rows and updates the score
+rotatePiece() - Rotates the Tetromino clockwise
+rotatePieceCounterClockwise() - Rotates the Tetromino anti-clockwise
+drawBoard() - Displays the board and Tetrominoes
+gameLoop() - Runs the game loop
+
 ## Features
 - **Tetromino Pieces:** All seven standard tetrominoes (I, O, T, S, Z, J, L) are implemented.
 - **Grid Representation:** The game board is a 10x20 grid.
@@ -15,14 +26,14 @@ This project is a console-based implementation of the classic Tetris game using 
 - **Scoring System:** Awards points for cleared lines.
 - **Game Progression:** Falling speed increases after clearing a certain number of lines.
 - **Game Over Detection:** The game ends when blocks reach the top of the grid.
-
+  
 ## Controls
-- **Left Arrow (←):** Move left
-- **Right Arrow (→):** Move right
-- **Up Arrow (↑):** Rotate piece
-- **Down Arrow (↓):** Soft drop
-- **Spacebar:** Hard drop
-- **Escape (ESC):** Pause or Quit
+A - Move left
+D - Move right
+S - Move down
+W - Rotate clockwise
+E - Rotate anti-clockwise
+Q - Quit game
 
 ## Technical Requirements
 - Written in **C++ (C++17 or later recommended)**
