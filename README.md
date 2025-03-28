@@ -32,7 +32,6 @@ This project is a console-based implementation of the classic Tetris game using 
 - D - Move right
 - S - Move down
 - W - Rotate clockwise
-- E - Rotate anti-clockwise
 - Q - Quit game
 
 ## Technical Requirements
