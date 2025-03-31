@@ -22,6 +22,34 @@ std::vector<std::vector<bool>> board(BOARD_HEIGHT, std::vector<bool>(BOARD_WIDTH
 Tetromino currentPiece;
 int score = 0;
 
+// Hide the cursor
+void hideCursor() {
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO cursorInfo;
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = false;
+    SetConsoleCursorInfo(out, &cursorInfo);
+}
+
+// Set console color
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+// Get color for each tetromino type
+int getColorForPiece(TetrominoType type) {
+    switch (type) {
+        case TetrominoType::I: return 11; // Cyan
+        case TetrominoType::J: return  9; // Blue
+        case TetrominoType::L: return  6; // Orange
+        case TetrominoType::O: return 14; // Yellow
+        case TetrominoType::S: return 10; // Green
+        case TetrominoType::T: return 13; // Purple
+        case TetrominoType::Z: return 12; // Red
+        default: return 15; // White
+    }
+}
+
 void initializeTetromino(Tetromino& tetromino) {
     tetromino.x = BOARD_WIDTH / 2 - 2;
     tetromino.y = 0;
@@ -123,7 +151,10 @@ void rotatePiece() {
 }
 
 void drawBoard() {
-    system("cls");
+    // Move cursor to top-left instead of clearing screen to reduce flickering
+    COORD cursorPos = {0, 0};
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPos);
+    
     std::cout << "Score: " << score << "\n";
     // Top border
     std::cout << " " << std::string(BOARD_WIDTH * 2, '_') << " \n";
@@ -141,15 +172,29 @@ void drawBoard() {
                     }
                 }
             }
-            std::cout << (isCurrent ? "[]" : (board[y][x] ? "##" : "  "));
+            
+            if (isCurrent) {
+                setColor(getColorForPiece(currentPiece.type));
+                std::cout << "[]";
+                setColor(15); // Reset to white
+            } else if (board[y][x]) {
+                // For placed pieces, use a darker color
+                setColor(8); // Gray
+                std::cout << "##";
+                setColor(15); // Reset to white
+            } else {
+                std::cout << "  ";
+            }
         }
         std::cout << "|\n"; // Right border
     }
     // Bottom border
     std::cout << "+" << std::string(BOARD_WIDTH * 2, '-') << "+\n";
+    std::cout << "Controls: WASD to move, W to rotate, Q to quit\n";
 }
 
 void gameLoop() {
+    hideCursor();
     auto lastFallTime = std::chrono::steady_clock::now();
     while (true) {
         drawBoard();
@@ -166,13 +211,19 @@ void gameLoop() {
                         clearLines();
                         spawnNewPiece();
                         if (isCollision()) {
+                            setColor(12); // Red
                             std::cout << "Game Over! Final Score: " << score << "\n";
+                            setColor(15); // White
                             return;
                         }
                     }
                     break;
                 case 'w': rotatePiece(); break;
-                case 'q': std::cout << "Game Over! Final Score: " << score << "\n"; return;
+                case 'q': 
+                    setColor(14); // Yellow
+                    std::cout << "Game Over! Final Score: " << score << "\n";
+                    setColor(15); // White
+                    return;
             }
         }
         auto currentTime = std::chrono::steady_clock::now();
@@ -184,7 +235,9 @@ void gameLoop() {
                 clearLines();
                 spawnNewPiece();
                 if (isCollision()) {
+                    setColor(12); // Red
                     std::cout << "Game Over! Final Score: " << score << "\n";
+                    setColor(15); // White
                     return;
                 }
             }
