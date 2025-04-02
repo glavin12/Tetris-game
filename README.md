@@ -37,6 +37,7 @@ This project is a console-based implementation of the classic Tetris game using 
 - S - Move down
 - W - Rotate clockwise
 - Q - Quit game
+- Spacebar-Hard Drop of peice
 
 ## Technical Requirements
 - Written in **C++ (C++17 or later recommended)**
